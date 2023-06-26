@@ -3,17 +3,15 @@ package ru.skypro.homework_215.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class StringListImplTest {
-    private final StringListImpl out = new StringListImpl(12);
-    private final String[] array = {
-            "white", "gray", "black", "green", "round", "square", "round", "oval", "triangle", "ball", "wheel", "brick", "boot"
+class IntegerListImplTest {
+    private final IntegerListImpl out = new IntegerListImpl(12);
+    private final Integer[] array = {
+            1, 2, 3, 4, 5, 6, 5, 7, 8, 9, 10, 11, 12
     };
     @Test
-    public void shouldAddAString() {
-        String expected = array[0];
-        String actual = out.add("white");
+    public void shouldAddAInteger() {
+        Integer expected = array[0];
+        Integer actual = out.add(1);
 
         Assertions.assertEquals(expected, actual);
 
@@ -21,8 +19,8 @@ class StringListImplTest {
         int actualSize = out.size();
         Assertions.assertEquals(sizeExpected, actualSize);
 
-        String expected2 = array[1];
-        String actual2 = out.add(1, "gray");
+        Integer expected2 = array[1];
+        Integer actual2 = out.add(1, 2);
 
         Assertions.assertEquals(expected2, actual2);
     }
@@ -31,8 +29,8 @@ class StringListImplTest {
     public void shouldCorrectlySetElement() {
         out.add(array[0]);
 
-        String expected = array[1];
-        String actualSet = out.set(0, array[1]);
+        Integer expected = array[1];
+        Integer actualSet = out.set(0, array[1]);
 
         Assertions.assertEquals(expected, actualSet);
     }
@@ -42,17 +40,17 @@ class StringListImplTest {
         out.add(array[1]);
         out.add(array[11]);
 
-        String expected = array[1];
-        String actualRemovedString = out.remove(array[1]);
+        Integer expected = array[1];
+        Integer actualRemovedInteger = out.remove(array[1]);
 
-        Assertions.assertEquals(expected, actualRemovedString);
+        Assertions.assertEquals(expected, actualRemovedInteger);
 
         int sizeExpected = 1;
         int actualSize = out.size();
         Assertions.assertEquals(sizeExpected, actualSize);
 
-        String expectedIndex = array[11];
-        String actualRemovedByIndex = out.remove(0);
+        Integer expectedIndex = array[11];
+        Integer actualRemovedByIndex = out.remove(0);
 
         Assertions.assertEquals(expectedIndex, actualRemovedByIndex);
     }
@@ -63,7 +61,7 @@ class StringListImplTest {
         out.add(array[0]);
         out.add(array[3]);
         out.add(array[4]);
-        boolean actual = out.contains("round");
+        boolean actual = out.contains(5);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -101,8 +99,8 @@ class StringListImplTest {
         out.add(array[0]);
         out.add(array[3]);
 
-        String expected = array[3];
-        String actual = out.get(1);
+        Integer expected = array[3];
+        Integer actual = out.get(1);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -112,7 +110,7 @@ class StringListImplTest {
         out.add(array[0]);
         out.add(array[3]);
 
-        StringListImpl test = new StringListImpl(5);
+        IntegerListImpl test = new IntegerListImpl(5);
         test.add(array[0]);
         test.add(array[3]);
 
@@ -168,8 +166,8 @@ class StringListImplTest {
     public void shouldReturnArray(){
         out.add(array[0]);
         out.add(array[3]);
-        String [] expected = new String[]{array[0], array[3]};
-        String[] actual = out.toArray();
+        Integer [] expected = new Integer[]{array[0], array[3]};
+        Integer[] actual = out.toArray();
         Assertions.assertArrayEquals(expected, actual);
 
     }

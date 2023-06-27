@@ -178,16 +178,16 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
-    public static Integer generetic(Integer[] integers) {
-
-
-        Integer[] arr1 = new Integer[10];
-        Random random = new Random();
-        for (int i = 0; i < arr1.length; i++) {
-            arr1[i] = random.nextInt(100);
-            return arr1[i];
+    public void sortInsertion(IntegerList unsortedArray) {
+        for (int i = 1; i < unsortedArray.size(); i++) {
+            int temp = unsortedArray.get(i);
+            int j = i;
+            while (j > 0 && unsortedArray.get(j - 1) >= temp) {
+                unsortedArray.set(j, unsortedArray.get(j - 1));
+                j--;
+            }
+            unsortedArray.set(j, temp);
         }
-        return null;
     }
 }
 

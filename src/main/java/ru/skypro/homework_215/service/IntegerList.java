@@ -15,4 +15,5 @@ public interface IntegerList {
     boolean isEmpty();
     void  clear();
     Integer[] toArray();
+    void sortInsertion(IntegerList unsortedArray);
 }
